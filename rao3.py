@@ -25,7 +25,7 @@ def rao3(iters , pop_size):
 
         for i in range(pop_size):
             x1, x2 = random.sample(pop,2)
-            new_x = pop[i] + random.uniform(0,1)*(best-worst) + random.uniform(0,1)*(abs(x1)-x2)
+            new_x = pop[i] + random.uniform(0,1)*(best-abs(worst)) + random.uniform(0,1)*(abs(x1)-x2)
 
             if(funct(new_x)<funct(pop[i])):
                 pop[i]= new_x
