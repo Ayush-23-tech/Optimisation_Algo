@@ -10,30 +10,33 @@ def rao1(iter, pop_size):
     pop = []
 
     for i in range(pop_size):
-        pop.append(random.uniform(-10,10))
-
-    fitness = []
-    for i in range(pop_size):
-        fitness.append(funct(pop[i]))
-
-    best = min(fitness)
-    worst = max(fitness)
-    best_x = pop[np.argmin(fitness)]
+        pop.append(random.uniform(-10,10))  
 
     while iter>0 :
+
+        fitness = []
         for i in range(pop_size):
-            pop[i] = pop[i] + random.uniform(0,1)*(best-worst)
+            fitness.append(funct(pop[i]))
 
-            if(funct(pop[i])<best):
-                best = funct(pop[i])
-                best_x = pop[i]
+        best = pop[np.argmin(fitness)]
+        worst = pop[np.argmax(fitness)]
 
-            if(funct(pop[i])>worst):
-                worst = funct(pop[i])
+        best_val = min(fitness)
+        worst_val = max(fitness)
+
+        for i in range(pop_size):
+            new_x = pop[i] + random.uniform(0,1)*(best-worst)
+            if funct(new_x)<funct(pop[i]):
+                pop[i] = new_x
 
         iter = iter-1
 
-    return best_x , best
+    fitness = [funct(x) for x in pop]
+
+    best = pop[np.argmin(fitness)]
+    best_val = min(fitness)
+
+    return best , best_val
 
 
 iter = int(input("Enter number of iterations: "))
