@@ -25,8 +25,12 @@ def rao2(iter, pop_size):
         worst_val = max(fitness)
 
         for i in range(pop_size):
-            x1 , x2 = random.sample(pop,2)
-            new_x = pop[i] + random.uniform(0,1)*(best-worst) + random.uniform(0,1)*(abs(x1)-abs(x2))
+            k = random.choice([idx for idx in range(pop_size) if idx != i])
+            if fitness[i] < fitness[k]:
+                new_x = pop[i] + random.uniform(0,1)*(best-worst) + random.uniform(0,1)*(abs(pop[i])-abs(pop[k]))
+            else:
+                new_x = pop[i] + random.uniform(0,1)*(best-worst) + random.uniform(0,1)*(abs(pop[k])-abs(pop[i]))
+                
             if funct(new_x)<funct(pop[i]):
                 pop[i] = new_x
 
@@ -46,4 +50,3 @@ pop_size = int(input("Enter population size: "))
 best_x , best_val = rao2(iter, pop_size)
 print("Best x:", best_x)
 print("Best value:", best_val)
-            
