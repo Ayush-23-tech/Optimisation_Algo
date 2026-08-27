@@ -65,18 +65,8 @@ HQ-Rao demonstrated overwhelming statistical dominance across the board.
 | **Friedman Rank vs Rao-3** | 🥇 **1.00** (Mathematically perfect) |
 | **Computational Overhead** | 🟢 **0% Increase** (No extra function evaluations) |
 
-### 📈 Convergence Plots
-*(Below are the convergence graphs showing HQ-Rao's ultra-fast descent compared to standard algorithms. Notice the sharp drops indicating successful quantum tunneling out of local minima).*
 
-<p align="center">
-  <img src="path/to/your/plot1.png" width="400" alt="CEC 2014 Convergence Plot">
-  <img src="path/to/your/plot2.png" width="400" alt="CEC 2022 Convergence Plot">
-</p>
-<p align="center"><i>Figure 1: Convergence curves on CEC 2014 and CEC 2022 benchmark functions.</i></p>
 
 ### ⚠️ A Note on the No Free Lunch (NFL) Theorem
 Because of its aggressive exploitation speed, HQ-Rao occasionally causes premature quantum well collapse on highly dense, periodic composition landscapes (like the Shifted and Rotated Levy function). Identifying this as a classical freezing state provides a clear theoretical path for future refinement via *Heisenberg Uncertainty Scattering*.
 
----
-
-## 💻 6. Repository Structure & Usage
